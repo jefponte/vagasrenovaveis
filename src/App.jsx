@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div>
+      {console.log(positions)}
      <Button variant="contained">Hello World</Button>
     </div>
   );
