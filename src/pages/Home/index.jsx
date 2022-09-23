@@ -16,7 +16,7 @@ import { fetchData } from '../../services/api';
 export default function Home() {
     const [positions, setPositions] = useState([]);
     useEffect(() => {
-      fetchData(setPositions);
+        fetchData(setPositions);
     }, []);
 
     return (
@@ -55,7 +55,7 @@ export default function Home() {
                     </Container>
                 </Box>
                 <Container sx={{ py: 2 }} maxWidth="lg">
-                    <ListPositions positions={positions}/>
+                    <ListPositions positions={positions} />
                 </Container>
             </main>
             <Footer />
