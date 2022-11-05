@@ -6,9 +6,21 @@ export const apiPositions = axios.create({
 
 
 
+
+export const columns = [
+    { field: 'position', headerName: "Cargo", width: 300 },
+    { field: 'companyName', headerName: "Empresa", width: 200 },
+    { field: 'type', headerName: "Tipo", width: 200 },
+    { field: 'contact', headerName: "Contato", width: 200 },
+  ];
+  
+  
+
 export const fetchData = async (setData) => {
+
     const response = await apiPositions.get();
     const data = tsvToJSON(response.data);
+    data.reverse();
     setData(data);
 };
 

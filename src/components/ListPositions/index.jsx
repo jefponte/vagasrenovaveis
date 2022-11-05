@@ -12,7 +12,7 @@ function ShowContact(position) {
       <>
       <p>{position.contactType}:</p>
       
-      <Link href={position.contact} >{position.contact}</Link>
+      <a href={position.contact} >{position.contact}</a>
     </>
     
     );
