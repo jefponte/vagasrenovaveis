@@ -7,16 +7,16 @@ import Typography from '@mui/material/Typography';
 import { Grid, Link } from '@mui/material';
 
 function ShowContact(position) {
-  if (position.contactType === "Link") {
+  if (position?.contactType === "Link") {
     return (
       <>
-      <p>{position.contactType}:</p>
-      
-      <a href={position.contact} >{position.contact}</a>
+      <p>{position?.contactType}:</p>
+      <a href={position?.contact} >{position?.contact.substring(0,35)}...</a>
     </>
     
     );
   }
+ 
   else if (position.contactType === "Email") {
     return (
       <>
