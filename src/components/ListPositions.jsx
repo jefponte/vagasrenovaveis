@@ -4,30 +4,17 @@ import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import { Grid, Link } from '@mui/material';
+import { Grid } from '@mui/material';
 
 function ShowContact(position) {
   if (position?.contactType === "Link") {
-    return (
-      <>
-      <p>{position?.contactType}:</p>
-      <a href={position?.contact} >{position?.contact.substring(0,35)}...</a>
-    </>
-    
-    );
-  }
- 
-  else if (position.contactType === "Email") {
-    return (
-      <>
-        <p>{position.contactType}:</p>
-        <p>{position.contact}</p>
-      </>);
-  } else {
-    return (<>
-      <p>{position.contactType}:</p>
-      <p>{position.contact}</p>
-    </>);
+    return (<a href={position?.contact} >{position?.contact.substring(0, 35)}...</a>);
+  }else if (position.contactType === "Email") 
+  {
+    return (<a href={position?.contact} >{position?.contact.substring(0, 35)}...</a>);
+  } else 
+  {
+    return (position.contact);
   }
 }
 
@@ -75,8 +62,22 @@ export default function ListPositions(props) {
                   />
                 </Grid>
                 <Grid item xs={12} md={4}>
-
-                  {ShowContact(position)}
+                  <ListItemText
+                    primary={position?.contactType}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          sx={{ display: 'inline' }}
+                          component="span"
+                          variant="body2"
+                          color="text.primary"
+                        >
+                          {ShowContact(position)}
+                        </Typography>
+                      </React.Fragment>
+                    }
+                  />
+                  
                 </Grid>
               </Grid>
 
